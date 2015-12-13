@@ -8,7 +8,7 @@ as.Date(pwrdata$Date)
 ## Subsets the data based on the date range given
 pwrdatadates <- data[pwrdata$Date %in% c("1/2/2007","2/2/2007") ,]
 ## Converts the subsetted data to appropriate data types
-dttm <- strptime(paste(pwrdatadates$Date, subSetData$Time, sep=" "), "%d/%m/%Y %H:%M:%S")  
+dttm <- strptime(paste(pwrdatadates$Date, pwrdatadates$Time, sep=" "), "%d/%m/%Y %H:%M:%S")  
 glblpwr <- as.numeric(pwrdatadates$Global_active_power) 
 submtrg1 <- as.numeric(pwrdatadates$Sub_metering_1) 
 submtrg2 <- as.numeric(pwrdatadates$Sub_metering_2) 
