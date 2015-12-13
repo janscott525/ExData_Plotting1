@@ -8,13 +8,13 @@ as.Date(pwrdata$Date)
 ## Subsets the data based on the date range given
 pwrdatadates <- data[pwrdata$Date %in% c("1/2/2007","2/2/2007") ,]
 ## Converts the subsetted data to appropriate data types
-dttm <- strptime(paste(subSetData$Date, subSetData$Time, sep=" "), "%d/%m/%Y %H:%M:%S")  
-glblpwr <- as.numeric(subSetData$Global_active_power)
-glblrctvpwr <-as.numeric(subSetData$Global_reactive_power)
-vltg <- as.numeric(subSetData$Voltage)
-submtrg1 <- as.numeric(subSetData$Sub_metering_1) 
-submtrg2 <- as.numeric(subSetData$Sub_metering_2) 
-submtrg3 <- as.numeric(subSetData$Sub_metering_3) 
+dttm <- strptime(paste(pwrdatadates$Date, pwrdatadates$Time, sep=" "), "%d/%m/%Y %H:%M:%S")  
+glblpwr <- as.numeric(pwrdatadates$Global_active_power)
+glblrctvpwr <-as.numeric(pwrdatadates$Global_reactive_power)
+vltg <- as.numeric(pwrdatadates$Voltage)
+submtrg1 <- as.numeric(pwrdatadates$Sub_metering_1) 
+submtrg2 <- as.numeric(pwrdatadates$Sub_metering_2) 
+submtrg3 <- as.numeric(pwrdatadates$Sub_metering_3) 
 ## Creates a .png file, defines and creates the graphs and shuts down the graphs after plotting is complete
 png("plot4.png", width=480, height=480) 
 par(mfrow = c(2, 2))

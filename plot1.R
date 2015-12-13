@@ -5,11 +5,7 @@
 pwrdata <- read.table("household_power_consumption.txt", header=TRUE, sep=";", stringsAsFactors=FALSE, dec=".")
 strptime(pwrdata$Time, "HH:MM:SS")
 as.Date(pwrdata$Date)
-<<<<<<< HEAD
 ## Subsets the data based on the date range given
-=======
-## Subsets the data based on teh date range given
->>>>>>> 2ac6ae02c656e57135b47e7d3d53faa7fec54a08
 pwrdatadates <- data[pwrdata$Date %in% c("1/2/2007","2/2/2007") ,]
 ## Converts the subsetted data to numeric
 globalpower <- as.numeric(pwrdatadates$Global_active_power)

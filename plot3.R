@@ -8,11 +8,11 @@ as.Date(pwrdata$Date)
 ## Subsets the data based on the date range given
 pwrdatadates <- data[pwrdata$Date %in% c("1/2/2007","2/2/2007") ,]
 ## Converts the subsetted data to appropriate data types
-dttm <- strptime(paste(subSetData$Date, subSetData$Time, sep=" "), "%d/%m/%Y %H:%M:%S")  
-glblpwr <- as.numeric(subSetData$Global_active_power) 
-submtrg1 <- as.numeric(subSetData$Sub_metering_1) 
-submtrg2 <- as.numeric(subSetData$Sub_metering_2) 
-submtrg3 <- as.numeric(subSetData$Sub_metering_3) 
+dttm <- strptime(paste(pwrdatadates$Date, subSetData$Time, sep=" "), "%d/%m/%Y %H:%M:%S")  
+glblpwr <- as.numeric(pwrdatadates$Global_active_power) 
+submtrg1 <- as.numeric(pwrdatadates$Sub_metering_1) 
+submtrg2 <- as.numeric(pwrdatadates$Sub_metering_2) 
+submtrg3 <- as.numeric(pwrdatadates$Sub_metering_3) 
 ## Creates a .png file, defines and creates the graph and shuts down the graph after plotting is complete
 png("plot3.png", width=480, height=480) 
 plot(dttm, submtrg1, type="l", ylab="Energy Submetering", xlab="") 
